@@ -1,4 +1,4 @@
-package com.arthur.trashure
+package com.capstone.trashure
 
 import org.junit.Test
 
