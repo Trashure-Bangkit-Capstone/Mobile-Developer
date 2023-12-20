@@ -13,4 +13,10 @@
     <string name="last_name">Last Name</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="username">Username</string>
+    <string name="select_account_type">Select Account Type</string>
+    <string-array name="account_types">
+        <item>Admin</item>
+        <item>User</item>
+    </string-array>
+
 </resources>
