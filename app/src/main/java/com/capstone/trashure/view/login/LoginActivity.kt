@@ -32,6 +32,21 @@ class LoginActivity : AppCompatActivity() {
         val buttonLogin = binding.buttonLogin
         val textViewRegister = binding.textViewRegister
 
+        // Check if the user is already logged in
+        if (isLoggedIn()) {
+            // User is already logged in, navigate to appropriate activity based on role
+            val storedRole = sharedPreferences.getString("role", "")
+            if (storedRole == "Admin") {
+                val intent = Intent(this@LoginActivity, AdminHomeActivity::class.java)
+                startActivity(intent)
+                finish() // finish current activity to prevent going back to login
+            } else {
+                val intent = Intent(this@LoginActivity, UserHomeActivity::class.java)
+                startActivity(intent)
+                finish() // finish current activity to prevent going back to login
+            }
+        }
+
         // Set up TextWatcher for email
         editTextEmail.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -70,9 +85,13 @@ class LoginActivity : AppCompatActivity() {
                     if (storedRole == "Admin") {
                         val intent = Intent(this@LoginActivity, AdminHomeActivity::class.java)
                         startActivity(intent)
+                        saveLoginStatus() // save login status
+                        finish() // finish current activity to prevent going back to login
                     } else {
                         val intent = Intent(this@LoginActivity, UserHomeActivity::class.java)
                         startActivity(intent)
+                        saveLoginStatus() // save login status
+                        finish() // finish current activity to prevent going back to login
                     }
                 } else {
                     // Login failed
@@ -90,6 +109,17 @@ class LoginActivity : AppCompatActivity() {
         }
     }
 
+    private fun saveLoginStatus() {
+        // Save login status to SharedPreferences
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("isLoggedIn", true)
+        editor.apply()
+    }
+
+    private fun isLoggedIn(): Boolean {
+        // Check if the user is already logged in
+        return sharedPreferences.getBoolean("isLoggedIn", false)
+    }
     private fun validateFields() {
         val editTextEmail = binding.editTextEmail
         val editTextPassword = binding.editTextPassword
