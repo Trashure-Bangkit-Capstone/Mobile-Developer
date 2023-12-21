@@ -18,6 +18,7 @@
     <string name="admin_username">Username</string>
     <string name="admin_date">12–10–2023</string>
     <string name="admin_location">Location</string>
+    <string name="btnlogout">Logout</string>
     <string-array name="account_types">
         <item>Admin</item>
         <item>User</item>
