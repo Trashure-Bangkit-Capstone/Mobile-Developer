@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
@@ -19,16 +20,27 @@
         android:theme="@style/Theme.Trashure"
         tools:targetApi="31">
         <activity
-            android:name=".view.user.UserHomeActivity"
+            android:name=".ui.BottomNavActivity"
+            android:exported="false"
+            android:label="@string/title_activity_bottom_nav"
+            android:theme="@style/Theme.Trashure" />
+        <activity
+            android:name=".ui.settings.SettingsActivity"
             android:exported="false" />
         <activity
-            android:name=".view.admin.AdminHomeActivity"
+            android:name=".ui.settings.PersonalInformationActivity"
             android:exported="false" />
         <activity
-            android:name=".view.signup.SignUpActivity"
+            android:name=".ui.settings.KebijakanActivity"
             android:exported="false" />
         <activity
-            android:name=".view.login.LoginActivity"
+            android:name=".ui.menu.admin.AdminHomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.signup.SignUpActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.login.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

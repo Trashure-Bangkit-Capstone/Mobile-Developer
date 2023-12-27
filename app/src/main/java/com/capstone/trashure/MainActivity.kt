@@ -4,7 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.capstone.trashure.databinding.ActivityMainBinding
-import com.capstone.trashure.view.login.LoginActivity
+import com.capstone.trashure.ui.login.LoginActivity
 
 class MainActivity : AppCompatActivity() {
 
